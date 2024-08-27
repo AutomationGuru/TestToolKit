@@ -1,0 +1,37 @@
+# compiled output
+testApp/dist
+testApp/tmp
+testApp/out-tsc
+
+# dependencies
+testApp/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+testApp/.angular/cache
+testApp/.sass-cache
+testApp/connect.lock
+testApp/coverage
+testApp/libpeerconnection.log
+testApp/npm-debug.log
+testApp/testem.log
+
+# e2e
+
+# System Files
+.DS_Store
+Thumbs.db
