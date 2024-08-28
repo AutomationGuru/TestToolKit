@@ -19,6 +19,9 @@ jobs:
         npm ci --force
     - name: Install Playwright dependencies
       run: |
+        cd testApp
+        npm run start
+        cd ..
         cd playwrightSpecs
         npm ci --force
         npx playwright install --with-deps    
