@@ -26,7 +26,7 @@ jobs:
       run: |
         cd testApp
         npm run start &
-        npx wait-on http://localhost:4200/  # Wait for the server to be up
+        npx wait-on http://localhost:4200/ --timeout 60000  # Wait up to 60 seconds (60000 milliseconds) for the server to be up
         cd ..
         cd playwrightSpecs
         npx playwright test
