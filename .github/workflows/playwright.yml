@@ -14,7 +14,8 @@ jobs:
       with:
         node-version: lts/*
     - name: Install dependencies
-      run: cd playwrightSpecs
+      run: |
+        cd playwrightSpecs
         npm ci --force
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
