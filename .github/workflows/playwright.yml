@@ -21,7 +21,7 @@ jobs:
       run: |        
         cd playwrightSpecs
         npm ci
-        npm playwright install --with-deps    
+        npx playwright install --with-deps    
     - name: Run Playwright Tests
       run: |
         cd testApp
