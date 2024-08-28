@@ -49,7 +49,7 @@ module.exports = defineConfig({
   ],
 
   webServer: {
-    command: 'cd ../testApp; npm run start',
+    command: 'cd ../testApp; npm ci --force; npm run start',
     url: 'http://localhost:4200/',
   },
 });
