@@ -13,7 +13,12 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
-    - name: Install dependencies
+    - name: Install Server dependencies
+      run: |
+        cd testApp
+        npm ci --force
+        npm run start
+    - name: Install Playwright dependencies
       run: |
         cd playwrightSpecs
         npm ci --force
