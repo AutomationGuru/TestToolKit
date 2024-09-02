@@ -6,6 +6,6 @@ export class SmartTablePages {
         this.page = page
     }
     get addNewRowButton() {
-        return this.page.locator('ng2-st-add-button')
+        return this.page.locator('.ng2-smart-actions-title a')
     }
 }

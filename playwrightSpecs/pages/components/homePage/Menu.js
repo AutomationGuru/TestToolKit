@@ -14,16 +14,16 @@ export class Menu {
         return this.page.locator('nb-menu li')
     }
     get tableLink(){
-        return this.page.locator('title="Tables & Data"')
+        return this.page.locator('[title="Tables & Data"]')
     }
     get smartTableLink(){
-        return this.page.locator('title="Smart Table"')
+        return this.page.locator('[title="Smart Table"]')
     }
     async expandTable(){
-        await tableLink.click()
+        await this.tableLink.click()
     }
     async goToSmartTable(){
-        await smartTableLink.click()
+        await this.smartTableLink.click()
         return new SmartTablePages(this.page)
     }
 

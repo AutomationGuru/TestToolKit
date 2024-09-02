@@ -12,6 +12,6 @@ test.describe('Table Page Specs', () => {
   test('Smart Table page', async ({ page }) => {
     await homePage.menu.expandTable()
     const smartTable = await homePage.menu.goToSmartTable()
-    await expect(smartTable.addNewRowButton).toBeVisible()
+    await expect(await smartTable.addNewRowButton).toBeVisible()
   });
 });
