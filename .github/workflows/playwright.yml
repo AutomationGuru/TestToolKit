@@ -9,10 +9,20 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x' 
+    - name: Install Python dependencies
+      run: |
+        cd playwrightPy
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     - uses: actions/setup-node@v4
       with:
-        node-version: lts/*
+        node-version: lts/*        
     - name: Install Server dependencies
       run: |
         cd testApp
@@ -21,15 +31,20 @@ jobs:
       run: |        
         cd playwrightSpecs
         npm ci
-        npx playwright install --with-deps    
+        npx playwright install --with-deps
     - name: Run Playwright Tests
       run: |
         cd testApp
         npm run start &
         npx wait-on http://localhost:4200/ --timeout 60000  # Wait up to 60 seconds (60000 milliseconds) for the server to be up
-        cd ..
+    - name: Run Playwright Tests
+      run: |        
         cd playwrightSpecs
-        npx playwright test
+        npx playwright test     
+    - name: Run Playwright Tests
+      run: |        
+        cd playwrightPy
+        pytest
     - uses: actions/upload-artifact@v4
       if: always()
       with:
