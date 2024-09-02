@@ -32,16 +32,16 @@ jobs:
         cd playwrightSpecs
         npm ci
         npx playwright install --with-deps
-    - name: Run Playwright Tests
+    - name: Start the test server
       run: |
         cd testApp
         npm run start &
         npx wait-on http://localhost:4200/ --timeout 60000  # Wait up to 60 seconds (60000 milliseconds) for the server to be up
-    - name: Run Playwright Tests
+    - name: Run Playwright node Tests
       run: |        
         cd playwrightSpecs
         npx playwright test     
-    - name: Run Playwright Tests
+    - name: Run Playwright python Tests
       run: |        
         cd playwrightPy
         pytest
