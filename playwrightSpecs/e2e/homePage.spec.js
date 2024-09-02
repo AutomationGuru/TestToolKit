@@ -21,13 +21,17 @@ test.describe('Home Page Specs', () => {
     await expect(await homePage.header.headerSection).toHaveCSS('background-color', 'rgb(50, 50, 89)')    
   });
 
-  // test('get started link', async ({ page }) => {
-  //   await page.goto('https://playwright.dev/');
+  test('check Menu block and hamburg section', async ({ page }) => {
+    await expect(homePage.menu.menuSideBarExpanded).toBeVisible()
+    expect(await (homePage.menu.menuSideBarExpanded).getAttribute('class')).toContain("expanded")
+    await homePage.header.hamBurgIcon.click()
+    expect(await (homePage.menu.menuSideBarExpanded).getAttribute('class')).toContain("compacted")
+    await homePage.header.hamBurgIcon.click()
+    await expect(homePage.menu.menuSidebarSection).toBeVisible()
+  }); 
 
-  //   // Click the get started link.
-  //   await page.getByRole('link', { name: 'Get started' }).click();
-
-  //   // Expects page to have a heading with the name of Installation.
-  //   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-  // });
+  test('Check temp menu', async ({ page }) => {
+    await expect(homePage.temperature.temperatureSection).toBeVisible()
+    await expect(homePage.temperature.temperatureGauge).toBeVisible()
+  });
 });
