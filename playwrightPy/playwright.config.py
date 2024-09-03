@@ -1,6 +1,6 @@
 # playwright.config.py
 
-from playwright.sync_api import Playwright, sync_playwright
+from playwright.sync_api import Playwright, sync_playwright # type: ignore
 
 def pytest_playwright_browser_type():
     # Set the default browser type to "firefox"

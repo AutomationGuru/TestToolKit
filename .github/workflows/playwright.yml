@@ -15,19 +15,24 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.x' 
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "${HOME}/.local/bin" >> $GITHUB_PATH
     - name: Install Python dependencies
       run: |
         cd playwrightPy
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - uses: actions/setup-node@v4
+        poetry install
+        poetry run playwright install --with-deps
+    - name: Set up Node
+      uses: actions/setup-node@v4
       with:
         node-version: lts/*        
     - name: Install Server dependencies
       run: |
         cd testApp
         npm ci --force
-    - name: Install Playwright dependencies
+    - name: Install Node Playwright dependencies
       run: |        
         cd playwrightSpecs
         npm ci

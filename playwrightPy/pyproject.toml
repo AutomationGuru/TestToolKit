@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "playwrightpy"
+version = "0.1.0"
+description = "Playwright specs with py"
+authors = ["guru kiran"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.2"
+pytest-playwright = "^0.5.1"
+playwright = "^1.46.0"
+pytest-xdist = "^3.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
