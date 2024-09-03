@@ -22,9 +22,9 @@ jobs:
     - name: Install Python dependencies
       run: |
         cd playwrightPy
-        poetry shell
         poetry install
         poetry run playwright install --with-deps
+        poetry config virtualenvs.in-project true        
     - name: Set up Node
       uses: actions/setup-node@v4
       with:
