@@ -50,7 +50,7 @@ jobs:
     - name: Run Playwright python Tests
       run: |        
         cd playwrightPy
-        pytest
+        poetry run pytest
     - uses: actions/upload-artifact@v4
       if: always()
       with:
